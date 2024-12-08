@@ -19,6 +19,7 @@ resource "null_resource" "install_k3s_control_plane" {
         EOT
     }
 }
+
 resource "null_resource" "install_k3s_worker" {
     count = 3
     depends_on = [null_resource.install_k3s_control_plane]
