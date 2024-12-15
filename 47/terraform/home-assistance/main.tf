@@ -1,7 +1,3 @@
-provider "local" {
-  version = "~> 2.1"
-}
-
 provider "null" {
   version = "~> 3.0"
 }
