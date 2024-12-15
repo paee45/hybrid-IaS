@@ -1,0 +1,16 @@
+version: '3.7'
+
+services:
+  homeassistant:
+    image: homeassistant/home-assistant:latest
+    container_name: homeassistant
+    volumes:
+      - homeassistant-config:/config
+    environment:
+      - TZ=Asia/Bangkok
+    network_mode: host
+    restart: unless-stopped
+
+volumes:
+  homeassistant-config:
+    driver: local
