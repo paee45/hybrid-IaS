@@ -8,6 +8,16 @@ provider "null" {
   version = "~> 3.0"
 }
 
+variable "username" {
+  description = "SSH username for Linux"
+  type        = string
+}
+
+variable "home_server_ip" {
+  description = "IP address of the home server"
+  type        = string
+}
+
 # Define a null resource to install Docker and Docker Compose on a remote Debian machine
 resource "null_resource" "install_docker" {
   # Use the remote-exec provisioner to run commands on the remote machine
@@ -38,9 +48,9 @@ resource "null_resource" "install_docker" {
     # Define the connection details for the remote machine
     connection {
       type        = "ssh"
-      user        = "your-username"  # Replace with your SSH username
+      user        = var.username
       private_key = file("~/.ssh/id_rsa")  # Path to your SSH private key
-      host        = "your-debian-host"  # Replace with your remote host address
+      host        = var.home_server_ip  # Replace with your remote host address
     }
   }
 }

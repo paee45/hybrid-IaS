@@ -1,7 +1,7 @@
 services:
   homeassistant:
     image: homeassistant/home-assistant:latest
-    container_name: homeassistant
+    container_name: homeassistant_2
     volumes:
       - ~/homeassistant/config:/config # Mount the configuration directory - same root as docker-compose yml file
       - ~/homeassistant/data:/data
